@@ -62,9 +62,11 @@ export const Hero = () => {
             >
               {BUSINESS.hero.ctaLabel}
             </a>
-            <div className="font-mono text-[11px] uppercase tracking-[0.15em] text-ink" data-testid="hero-rating">
-              <span className="text-brand">★</span> {BUSINESS.rating.score} · {BUSINESS.rating.count}
-            </div>
+            {BUSINESS.rating && (
+              <div className="font-mono text-[11px] uppercase tracking-[0.15em] text-ink" data-testid="hero-rating">
+                <span className="text-brand">★</span> {BUSINESS.rating.score} · {BUSINESS.rating.count}
+              </div>
+            )}
           </div>
         </motion.div>
 

@@ -27,6 +27,7 @@ Build the best possible showcase website for The Flying Loaf Bakery (300-332 Gra
 - "From the Counter" photo gallery: slow drifting marquee of 6 AI-generated food photos (bánh mì, vanilla slice, donuts, pie, iced coffee, bread rolls), pause on hover
 - Vercel deploy fixes: `.npmrc` (legacy-peer-deps), `vercel.json` (SPA rewrites), `ajv ^8` pin — user successfully deployed to Vercel
 - MASTER TEMPLATE refactor: all business content centralized in `src/config/business.js` + `src/data/menu.js`; brand palette as Tailwind tokens (cream/ink/brand in tailwind.config.js); customization guide at `/app/TEMPLATE.md`; components are now business-agnostic
+- GOD TEMPLATE upgrade: `features` flags toggle sections per business type; nav links auto-generate from enabled sections; generic `cta` (order/book/call/quote, url ""=hidden); `contact` (phone/email/socials, empty=hidden); rating null=hidden; TEMPLATE.md has business-type presets + copy-paste Claude brief
 
 ## Backlog
 - P2: Catering enquiry form, SEO meta/OG tags, real bakery photography swap, hidden sales-pitch page

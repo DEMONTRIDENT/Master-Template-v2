@@ -11,7 +11,35 @@ import { IMAGES } from "../data/menu";
 
 export const BUSINESS = {
   name: "The Flying Loaf", // nav logo + mobile menu (a "." accent is appended automatically)
+  navCtaLabel: "Visit Us", // top-right nav button text
   wordmark: "THE FLYING LOAF", // giant footer text — keep short so it fits one line
+
+  // --- FEATURE SWITCHES — turn sections on/off per business type ---
+  // Food/café: menu + order CTA · Salon: services + book CTA · Trades: services + quote CTA
+  features: {
+    marquee: true, // scrolling tagline ribbon
+    story: true, // numbered "about" chapters
+    gallery: true, // drifting photo strip
+    menu: true, // menu / services / pricing list
+    reviews: true, // dark testimonials section (requires `rating`)
+    visit: true, // map, address, hours, contact
+  },
+
+  // --- Contact details (leave "" / [] to hide) ---
+  contact: {
+    phone: "", // e.g. "(03) 9000 0000" — shows in Visit section
+    email: "", // e.g. "hello@business.com.au"
+    socials: [], // e.g. [{ label: "Instagram", url: "https://instagram.com/..." }] — shows in footer
+  },
+
+  // --- Primary call-to-action: order / book / call / get a quote — anything ---
+  cta: {
+    prompt: "Can't make it in?", // small line above the button in the Visit section
+    label: "Order on Uber Eats →", // button text
+    url: "https://www.ubereats.com/au/store/the-flying-loaf-bakery/eT7d4DxzTNuXZswrcGHKkQ", // set "" to hide the button
+    footerHeading: "Order", // footer column title (e.g. "Book", "Get a Quote")
+    footerLabel: "Uber Eats — The Flying Loaf Bakery", // footer link text
+  },
 
   hero: {
     overline: "Craigieburn, Melbourne — Est. Bakery & Bánh Mì House",
@@ -25,6 +53,7 @@ export const BUSINESS = {
     imageBadge: "Baked fresh · Open 7 days",
   },
 
+  // Social proof — set to null to hide the hero badge (disable features.reviews too)
   rating: { score: "4.6", count: "1,000+ ratings" },
 
   // Scrolling ribbon phrases (business taglines / USPs)
@@ -32,6 +61,7 @@ export const BUSINESS = {
 
   // "About" section — numbered story chapters
   story: {
+    navLabel: "Our Story",
     overline: "Our Story",
     heading: "Three things we refuse",
     headingItalic: "to compromise.",
@@ -73,6 +103,7 @@ export const BUSINESS = {
 
   // Menu section headings — the items themselves live in src/data/menu.js
   menu: {
+    navLabel: "Menu", // e.g. "Services", "Pricing", "Programs"
     overline: "The Menu",
     heading: "Simple. Fresh.",
     headingItalic: "Every day.",
@@ -80,12 +111,14 @@ export const BUSINESS = {
   },
 
   reviews: {
+    navLabel: "Reviews",
     overline: "What Craigieburn Says",
     sourceLine: "From 1,000+ verified ratings on Uber Eats",
   },
 
   // Location, hours & contact
   visit: {
+    navLabel: "Visit",
     overline: "Find Us",
     heading: "Come say",
     headingItalic: "chào.",
@@ -97,13 +130,9 @@ export const BUSINESS = {
     hoursTime: "8:00 AM – 5:00 PM",
     hoursNote: "Open 7 days · Come early for the crackle",
     hoursShort: "Open 7 days · 8AM – 5PM",
-    orderPrompt: "Can't make it in?",
-    orderLabel: "Order on Uber Eats →",
-    orderUrl: "https://www.ubereats.com/au/store/the-flying-loaf-bakery/eT7d4DxzTNuXZswrcGHKkQ",
   },
 
   footer: {
-    orderLinkLabel: "Uber Eats — The Flying Loaf Bakery",
     copyrightName: "The Flying Loaf Bakery · Craigieburn",
     tagline: "Baked with pride, every morning",
   },

@@ -9,8 +9,10 @@ import { MenuSection } from "./components/MenuSection";
 import { Reviews } from "./components/Reviews";
 import { Visit } from "./components/Visit";
 import { Footer } from "./components/Footer";
+import { BUSINESS } from "./config/business";
 
 function App() {
+  const f = BUSINESS.features;
   return (
     <ReactLenis root options={{ lerp: 0.08, smoothWheel: true }}>
       <div className="App bg-cream min-h-screen">
@@ -18,14 +20,16 @@ function App() {
         <Nav />
         <main>
           <Hero />
-          <div className="mt-20 md:mt-28">
-            <Ribbon />
-          </div>
-          <Manifesto />
-          <Gallery />
-          <MenuSection />
-          <Reviews />
-          <Visit />
+          {f.marquee && (
+            <div className="mt-20 md:mt-28">
+              <Ribbon />
+            </div>
+          )}
+          {f.story && <Manifesto />}
+          {f.gallery && <Gallery />}
+          {f.menu && <MenuSection />}
+          {f.reviews && <Reviews />}
+          {f.visit && <Visit />}
         </main>
         <Footer />
       </div>

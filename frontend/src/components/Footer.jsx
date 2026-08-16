@@ -13,18 +13,34 @@ export const Footer = () => (
           <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-cream/40 mb-3">Hours</p>
           <p className="text-sm leading-relaxed text-cream/80">{BUSINESS.visit.hoursDays}<br />{BUSINESS.visit.hoursTime}</p>
         </div>
-        <div data-testid="footer-order">
-          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-cream/40 mb-3">Order</p>
-          <a
-            href={BUSINESS.visit.orderUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-testid="footer-ubereats-link"
-            className="text-sm text-cream/80 hover:text-brand transition-colors duration-300 underline underline-offset-4"
-          >
-            {BUSINESS.footer.orderLinkLabel}
-          </a>
-        </div>
+        {(BUSINESS.cta.url || BUSINESS.contact.socials.length > 0) && (
+          <div data-testid="footer-order">
+            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-cream/40 mb-3">{BUSINESS.cta.footerHeading}</p>
+            {BUSINESS.cta.url && (
+              <a
+                href={BUSINESS.cta.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="footer-cta-link"
+                className="text-sm text-cream/80 hover:text-brand transition-colors duration-300 underline underline-offset-4"
+              >
+                {BUSINESS.cta.footerLabel}
+              </a>
+            )}
+            {BUSINESS.contact.socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid={`footer-social-${s.label.toLowerCase()}`}
+                className="block mt-2 text-sm text-cream/80 hover:text-brand transition-colors duration-300 underline underline-offset-4"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </div>
 

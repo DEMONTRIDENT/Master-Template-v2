@@ -3,12 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { BUSINESS } from "../config/business";
 
+// Nav links auto-generate from enabled sections in config/business.js
 const links = [
-  { label: "Menu", href: "#menu" },
-  { label: "Our Story", href: "#story" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Visit", href: "#visit" },
-];
+  BUSINESS.features.menu && { label: BUSINESS.menu.navLabel, href: "#menu" },
+  BUSINESS.features.story && { label: BUSINESS.story.navLabel, href: "#story" },
+  BUSINESS.features.reviews && { label: BUSINESS.reviews.navLabel, href: "#reviews" },
+  BUSINESS.features.visit && { label: BUSINESS.visit.navLabel, href: "#visit" },
+].filter(Boolean);
 
 export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -95,7 +96,7 @@ export const Nav = () => {
             data-testid="nav-cta"
             className="hidden md:inline-block font-mono text-[11px] uppercase tracking-[0.2em] bg-ink text-cream px-5 py-2.5 rounded-full hover:bg-brand transition-colors duration-300"
           >
-            Visit Us
+            {BUSINESS.navCtaLabel}
           </a>
           <button
             data-testid="mobile-menu-toggle"

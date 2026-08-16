@@ -43,18 +43,35 @@ export const Visit = () => (
             </div>
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand mt-4">{BUSINESS.visit.hoursNote}</p>
           </div>
-          <div data-testid="visit-order">
-            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-ink/40 mb-3">{BUSINESS.visit.orderPrompt}</p>
-            <a
-              href={BUSINESS.visit.orderUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="visit-ubereats-link"
-              className="inline-block font-mono text-[11px] uppercase tracking-[0.2em] bg-ink text-cream px-7 py-3.5 rounded-full hover:bg-brand transition-colors duration-300"
-            >
-              {BUSINESS.visit.orderLabel}
-            </a>
-          </div>
+          {(BUSINESS.contact.phone || BUSINESS.contact.email) && (
+            <div data-testid="visit-contact">
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-ink/40 mb-3">Contact</p>
+              {BUSINESS.contact.phone && (
+                <a href={`tel:${BUSINESS.contact.phone}`} data-testid="visit-phone" className="block font-serif text-xl md:text-2xl text-ink hover:text-brand transition-colors duration-300">
+                  {BUSINESS.contact.phone}
+                </a>
+              )}
+              {BUSINESS.contact.email && (
+                <a href={`mailto:${BUSINESS.contact.email}`} data-testid="visit-email" className="block font-serif text-xl md:text-2xl text-ink hover:text-brand transition-colors duration-300 mt-1">
+                  {BUSINESS.contact.email}
+                </a>
+              )}
+            </div>
+          )}
+          {BUSINESS.cta.url && (
+            <div data-testid="visit-order">
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-ink/40 mb-3">{BUSINESS.cta.prompt}</p>
+              <a
+                href={BUSINESS.cta.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="visit-cta-link"
+                className="inline-block font-mono text-[11px] uppercase tracking-[0.2em] bg-ink text-cream px-7 py-3.5 rounded-full hover:bg-brand transition-colors duration-300"
+              >
+                {BUSINESS.cta.label}
+              </a>
+            </div>
+          )}
         </div>
       </motion.div>
     </div>
