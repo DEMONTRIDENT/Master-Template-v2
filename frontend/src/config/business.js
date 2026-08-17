@@ -8,8 +8,9 @@
 // No component files need to change.
 // ============================================================
 import { IMAGES } from "../data/menu";
+import { BARBER } from "./presets/barber";
 
-export const BUSINESS = {
+const BAKERY = {
   name: "The Flying Loaf", // nav logo + mobile menu (a "." accent is appended automatically)
   navCtaLabel: "Visit Us", // top-right nav button text
   wordmark: "THE FLYING LOAF", // giant footer text — keep short so it fits one line
@@ -153,6 +154,7 @@ export const BUSINESS = {
     hoursTime: "8:00 AM – 5:00 PM",
     hoursNote: "Open 7 days · Come early for the crackle",
     hoursShort: "Open 7 days · 8AM – 5PM",
+    hoursNumeric: { open: 8, close: 17, days: [0, 1, 2, 3, 4, 5, 6] }, // live "Open now" badge — remove to hide
   },
 
   footer: {
@@ -182,3 +184,10 @@ export const BUSINESS = {
     buttonLabel: "Send Message →",
   },
 };
+
+// ---- DEMO BRAND SWITCHER ----
+// Open the site with ?demo=barber to preview this exact template as a barbershop.
+// Add more demo brands in src/config/presets/ and register them below.
+const DEMOS = { barber: BARBER };
+const demoKey = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("demo") : null;
+export const BUSINESS = DEMOS[demoKey] || BAKERY;

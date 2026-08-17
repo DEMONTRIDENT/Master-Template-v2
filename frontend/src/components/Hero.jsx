@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { IMAGES } from "../data/menu";
 import { BUSINESS } from "../config/business";
+import { OpenBadge } from "./OpenBadge";
 
 const line = {
   hidden: { y: "110%" },
@@ -54,7 +55,7 @@ export const Hero = () => {
           <p className="text-ink/70 text-sm md:text-base leading-relaxed max-w-sm" data-testid="hero-description">
             {BUSINESS.hero.description}
           </p>
-          <div className="mt-8 flex items-center gap-6">
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
             <a
               href="#menu"
               data-testid="hero-menu-btn"
@@ -67,6 +68,7 @@ export const Hero = () => {
                 <span className="text-brand">★</span> {BUSINESS.rating.score} · {BUSINESS.rating.count}
               </div>
             )}
+            <OpenBadge />
           </div>
         </motion.div>
 

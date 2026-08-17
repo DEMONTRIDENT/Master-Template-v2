@@ -3,9 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CATEGORIES } from "../data/menu";
 import { BUSINESS } from "../config/business";
 
+// Menu items come from BUSINESS.categories (demo brands) or data/menu.js (default)
+const MENU_CATEGORIES = BUSINESS.categories || CATEGORIES;
+
 export const MenuSection = () => {
-  const [active, setActive] = useState(CATEGORIES[0].id);
-  const cat = CATEGORIES.find((c) => c.id === active);
+  const [active, setActive] = useState(MENU_CATEGORIES[0].id);
+  const cat = MENU_CATEGORIES.find((c) => c.id === active);
 
   return (
     <section id="menu" data-testid="menu-section" className="max-w-[1600px] mx-auto px-6 md:px-12 py-24 md:py-40">
@@ -20,7 +23,7 @@ export const MenuSection = () => {
       </div>
 
       <div className="flex flex-wrap gap-3 mb-12 md:mb-16" data-testid="menu-tabs">
-        {CATEGORIES.map((c) => (
+        {MENU_CATEGORIES.map((c) => (
           <button
             key={c.id}
             onClick={() => setActive(c.id)}

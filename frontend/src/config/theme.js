@@ -59,4 +59,21 @@ export function applyTheme(business) {
   s.type = "application/ld+json";
   s.text = JSON.stringify(ld);
   document.head.appendChild(s);
+
+  // FAQ rich results for Google
+  if (business.features.faq && business.faq?.items?.length) {
+    const faqLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: business.faq.items.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    };
+    const s2 = document.createElement("script");
+    s2.type = "application/ld+json";
+    s2.text = JSON.stringify(faqLd);
+    document.head.appendChild(s2);
+  }
 }

@@ -1,7 +1,14 @@
 # GOD TEMPLATE — One Codebase, Any Business
 
-A premium, award-style website that adapts to any business type by editing **4 files**.
+A premium, award-style website that adapts to any business type by editing **config only**.
 No component changes ever needed. Sections switch on/off via `features` flags.
+
+## ⚡ LIVE DEMO BRAND SWITCHER
+Open the site with **`?demo=barber`** to see this exact template as a completely
+different business (Kings Cut Barber Co. — different colours, fonts, services,
+photos, copy). Perfect mid-pitch: "here's your industry, live."
+Add more demo brands in `src/config/presets/` and register them at the bottom
+of `src/config/business.js`.
 
 ---
 
@@ -72,11 +79,16 @@ the default `@import` at the top of `src/App.css`.
 ### 1. `frontend/src/config/business.js` — the master switchboard (95% of a rebrand)
 - `theme` — ALL colours + fonts for the entire site (runtime CSS variables)
 - `seo` — Google title/description, link-preview (OG) tags, LocalBusiness
-  structured data (schema type, rating, hours, address) — all auto-generated
+  structured data (schema type, rating, hours, address) + FAQ rich results — all auto-generated
 - `features` — toggle marquee / story / gallery / menu / reviews / visit / faq / contactForm
 - `announcement` — thin promo bar above the nav ("" = hidden)
 - `contact` — phone, email, socials (empty = hidden automatically)
-- `cta` — the one primary action (order/book/call/quote), shown in Visit + footer
+- `cta` — the one primary action (order/book/call/quote): Visit section, footer,
+  and a floating mobile pill button that appears on scroll
+- `visit.hoursNumeric` — `{ open: 8, close: 17, days: [0-6] }` powers the live
+  "Open now / Closed now" badge in the hero + Visit section (remove to hide)
+- `categories` / `testimonials` — optional overrides for demo brands
+  (default site reads them from `src/data/menu.js`)
 - `rating` — hero star badge (`null` = hidden; also disable `features.reviews`)
 - `faq` — accordion questions · `contactForm` — enquiry form copy
 - Every heading, tagline, address, hours, story chapter, gallery photo
@@ -100,4 +112,5 @@ mobile slide-out) · Hero (kinetic reveal + parallax) · Ribbon (marquee) ·
 Manifesto (numbered story) · Gallery (drifting photos) · MenuSection (tabbed
 editorial list) · Reviews (dark, giant rating) · Visit (map/hours/contact/CTA) ·
 FAQ (accordion) · ContactForm (dark enquiry form — works on free static hosting,
-opens the visitor's email app pre-filled) · Footer (wordmark + columns)
+opens the visitor's email app pre-filled) · Footer (wordmark + columns) ·
+MobileCta (floating book/order pill on phones) · BackToTop · OpenBadge (live open/closed)

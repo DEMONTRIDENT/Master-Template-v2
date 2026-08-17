@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { BUSINESS } from "../config/business";
+import { OpenBadge } from "./OpenBadge";
 
 const reveal = {
   hidden: { opacity: 0, y: 40 },
@@ -42,6 +43,7 @@ export const Visit = () => (
               <span className="font-mono text-sm text-ink">{BUSINESS.visit.hoursTime}</span>
             </div>
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand mt-4">{BUSINESS.visit.hoursNote}</p>
+            <div className="mt-4"><OpenBadge /></div>
           </div>
           {(BUSINESS.contact.phone || BUSINESS.contact.email) && (
             <div data-testid="visit-contact">

@@ -13,6 +13,8 @@ import { Reviews } from "./components/Reviews";
 import { Visit } from "./components/Visit";
 import { FAQ } from "./components/FAQ";
 import { ContactForm } from "./components/ContactForm";
+import { MobileCta } from "./components/MobileCta";
+import { BackToTop } from "./components/BackToTop";
 import { Footer } from "./components/Footer";
 import { BUSINESS } from "./config/business";
 import { applyTheme } from "./config/theme";
@@ -44,6 +46,8 @@ function App() {
           {f.contactForm && BUSINESS.contact.email && <ContactForm />}
         </main>
         <Footer />
+        <MobileCta />
+        <BackToTop />
         <Toaster position="bottom-right" />
       </div>
     </ReactLenis>

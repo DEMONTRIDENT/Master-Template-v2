@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { REVIEWS } from "../data/menu";
 import { BUSINESS } from "../config/business";
 
+const TESTIMONIALS = BUSINESS.testimonials || REVIEWS;
+
 const reveal = {
   hidden: { opacity: 0, y: 40 },
   show: (i) => ({ opacity: 1, y: 0, transition: { duration: 0.8, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] } }),
@@ -24,7 +26,7 @@ export const Reviews = () => (
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-cream/10">
-        {REVIEWS.map((r, i) => (
+        {TESTIMONIALS.map((r, i) => (
           <motion.blockquote
             key={r.name}
             variants={reveal}
