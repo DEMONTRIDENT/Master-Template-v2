@@ -28,6 +28,7 @@ Build the best possible showcase website for The Flying Loaf Bakery (300-332 Gra
 - Vercel deploy fixes: `.npmrc` (legacy-peer-deps), `vercel.json` (SPA rewrites), `ajv ^8` pin — user successfully deployed to Vercel
 - MASTER TEMPLATE refactor: all business content centralized in `src/config/business.js` + `src/data/menu.js`; brand palette as Tailwind tokens (cream/ink/brand in tailwind.config.js); customization guide at `/app/TEMPLATE.md`; components are now business-agnostic
 - GOD TEMPLATE upgrade: `features` flags toggle sections per business type; nav links auto-generate from enabled sections; generic `cta` (order/book/call/quote, url ""=hidden); `contact` (phone/email/socials, empty=hidden); rating null=hidden; TEMPLATE.md has business-type presets + copy-paste Claude brief
+- GOD TEMPLATE v2 (final): runtime theme engine (`src/config/theme.js` + CSS variables — ALL colors/fonts from BUSINESS.theme, one-file rebrand, verified by live re-skin test); SEO engine (title/meta/OG/JSON-LD LocalBusiness from config); new optional sections: FAQ accordion, dark ContactForm (mailto-based, static-host friendly, PLACEHOLDER email hello@theflyingloafbakery.com.au), announcement bar, scroll progress bar; 5 theme presets + upgraded Claude brief in TEMPLATE.md
 
 ## Backlog
 - P2: Catering enquiry form, SEO meta/OG tags, real bakery photography swap, hidden sales-pitch page

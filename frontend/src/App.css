@@ -1,18 +1,28 @@
-/* TEMPLATE: fonts — swap the Google Fonts import + the three families below.
-   Brand colours live in tailwind.config.js (cream / ink / brand). */
+/* TEMPLATE: default theme values (RGB triplets) — overridden at runtime by
+   BUSINESS.theme in src/config/business.js. Fonts import below is the default
+   set; new fonts are injected via theme.googleFontsUrl. */
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Manrope:wght@400;500&family=JetBrains+Mono:wght@400&display=swap");
 
+:root {
+  --cream: 244 241 235;
+  --ink: 26 26 26;
+  --brand: 168 74 34;
+  --font-serif: "Playfair Display";
+  --font-sans: "Manrope";
+  --font-mono: "JetBrains Mono";
+}
+
 .App {
-  font-family: "Manrope", sans-serif;
-  color: #1a1a1a;
+  font-family: var(--font-sans), sans-serif;
+  color: rgb(var(--ink));
 }
 
 .font-serif {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-serif), serif;
 }
 
 .font-mono {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono), monospace;
 }
 
 .noise-overlay {
@@ -24,10 +34,10 @@
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* TEMPLATE: keep in sync with `brand` / `cream` in tailwind.config.js */
+/* TEMPLATE: follows the brand colours automatically */
 ::selection {
-  background: #a84a22;
-  color: #f4f1eb;
+  background: rgb(var(--brand));
+  color: rgb(var(--cream));
 }
 
 html {

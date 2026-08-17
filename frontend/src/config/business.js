@@ -14,6 +14,27 @@ export const BUSINESS = {
   navCtaLabel: "Visit Us", // top-right nav button text
   wordmark: "THE FLYING LOAF", // giant footer text — keep short so it fits one line
 
+  // --- THEME — the ENTIRE look from one place (colours + fonts) ---
+  theme: {
+    cream: "#F4F1EB", // page background (any light tone)
+    ink: "#1A1A1A", // text + dark sections (any near-black)
+    brand: "#A84A22", // accent — the personality colour
+    fontSerif: "Playfair Display", // display headings
+    fontSans: "Manrope", // body text
+    fontMono: "JetBrains Mono", // labels / prices / overlines
+    googleFontsUrl: "", // set when changing fonts, e.g. "https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Sora:wght@400;500&family=Space+Mono&display=swap"
+  },
+
+  // --- SEO — Google result + link previews + structured data ---
+  seo: {
+    title: "The Flying Loaf Bakery — Bánh Mì & Fresh Bakes, Craigieburn",
+    description: "Craigieburn's favourite bakery. Crackle-skin bánh mì, fresh rolls, pies, cakes and Vietnamese iced coffee. Open 7 days, 8am–5pm on Grand Blvd.",
+    schemaType: "Bakery", // schema.org type: Bakery, Restaurant, HairSalon, Electrician, ExerciseGym...
+  },
+
+  // Thin bar above the nav — "" hides it
+  announcement: "Rated 4.6 ★ by 1,000+ locals — beat the midday rush",
+
   // --- FEATURE SWITCHES — turn sections on/off per business type ---
   // Food/café: menu + order CTA · Salon: services + book CTA · Trades: services + quote CTA
   features: {
@@ -23,12 +44,14 @@ export const BUSINESS = {
     menu: true, // menu / services / pricing list
     reviews: true, // dark testimonials section (requires `rating`)
     visit: true, // map, address, hours, contact
+    faq: true, // accordion of common questions
+    contactForm: true, // dark enquiry form (requires contact.email — sends via the visitor's email app)
   },
 
   // --- Contact details (leave "" / [] to hide) ---
   contact: {
     phone: "", // e.g. "(03) 9000 0000" — shows in Visit section
-    email: "", // e.g. "hello@business.com.au"
+    email: "hello@theflyingloafbakery.com.au", // PLACEHOLDER — replace with the real inbox
     socials: [], // e.g. [{ label: "Instagram", url: "https://instagram.com/..." }] — shows in footer
   },
 
@@ -54,7 +77,7 @@ export const BUSINESS = {
   },
 
   // Social proof — set to null to hide the hero badge (disable features.reviews too)
-  rating: { score: "4.6", count: "1,000+ ratings" },
+  rating: { score: "4.6", count: "1,000+ ratings", reviewCount: "1000" },
 
   // Scrolling ribbon phrases (business taglines / USPs)
   marquee: ["Freshly Baked Daily", "Vietnamese Inspired", "Craigieburn's Finest", "Crackle-Skin Bánh Mì", "Real Drip Coffee"],
@@ -135,5 +158,27 @@ export const BUSINESS = {
   footer: {
     copyrightName: "The Flying Loaf Bakery · Craigieburn",
     tagline: "Baked with pride, every morning",
+  },
+
+  faq: {
+    navLabel: "FAQ",
+    overline: "Good to Know",
+    heading: "Questions,",
+    headingItalic: "answered.",
+    items: [
+      { q: "When is the best time to come in?", a: "Everything is baked fresh from open. The midday rush is real — arrive before noon for the full range, especially the Roast Crackle Bánh Mì." },
+      { q: "Do you cater for events or bulk orders?", a: "Yes — bread rolls by the half-dozen and platters on request. Drop in or message us a day ahead and we'll have it boxed and ready." },
+      { q: "Any vegetarian options?", a: "The Marinated Tofu Roll is a local favourite — 98% loved on Uber Eats. Plus donuts, slices, cakes and pastries." },
+      { q: "Can I get delivery?", a: "Absolutely — find us on Uber Eats and we'll bring the bakery to your door." },
+    ],
+  },
+
+  contactForm: {
+    navLabel: "Contact",
+    overline: "Say Hello",
+    heading: "Get in",
+    headingItalic: "touch.",
+    note: "Catering enquiry, feedback, or just craving something specific? Send us a message and we'll get back to you.",
+    buttonLabel: "Send Message →",
   },
 };

@@ -9,6 +9,8 @@ const links = [
   BUSINESS.features.story && { label: BUSINESS.story.navLabel, href: "#story" },
   BUSINESS.features.reviews && { label: BUSINESS.reviews.navLabel, href: "#reviews" },
   BUSINESS.features.visit && { label: BUSINESS.visit.navLabel, href: "#visit" },
+  BUSINESS.features.faq && { label: BUSINESS.faq.navLabel, href: "#faq" },
+  BUSINESS.features.contactForm && { label: BUSINESS.contactForm.navLabel, href: "#contact" },
 ].filter(Boolean);
 
 export const Nav = () => {
@@ -74,6 +76,11 @@ export const Nav = () => {
         scrolled ? "bg-cream/85 border-b border-ink/10" : "bg-cream/50"
       }`}
     >
+      {BUSINESS.announcement && (
+        <div data-testid="announcement-bar" className="bg-brand text-cream text-center font-mono text-[10px] uppercase tracking-[0.2em] py-2 px-4">
+          {BUSINESS.announcement}
+        </div>
+      )}
       <div className="max-w-[1600px] mx-auto flex items-center justify-between px-6 md:px-12 h-16 md:h-20">
         <a href="#top" data-testid="nav-logo" className="font-serif text-lg md:text-xl font-bold tracking-tight text-ink">
           {BUSINESS.name}<span className="text-brand">.</span>
